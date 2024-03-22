@@ -1,6 +1,6 @@
 public class ParolaController {
     private static ParolaController instance;
-    private final ParolaService parolaService;
+    private ParolaService parolaService;
     private String playerName;
     private Quiz quiz;
     private Vraag huidigeVraag;

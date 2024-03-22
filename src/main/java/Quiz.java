@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Quiz {
-    private final ArrayList<Vraag> vragen;
+    private ArrayList<Vraag> vragen;
     private int volgendeVraagIndex;
 
     public Quiz(ArrayList<Vraag> vragen) {
