@@ -52,7 +52,7 @@ public class ParolaController {
     public void processAnswer(String answer) {
         if (huidigeVraag instanceof MeerkeuzeVraag) {
             for (int i = 0; i < ANTWOORD_KEUZES.length; i++) {
-                if (ANTWOORD_KEUZES[i].equals(answer)) {
+                if (ANTWOORD_KEUZES[i].equalsIgnoreCase(answer)) {
                     huidigeVraag.processAnswer(huidigeVraag.antwoorden.get(i).getAntwoordTekst());
                     break;
                 }
