@@ -14,7 +14,7 @@ public class LengteWoord implements Puntentelling {
         } else {
             bericht += "Het gevormde woord \"" + woord + "\" bestaat niet. ";
         }
-        bericht += "Punten voor de lengte van het woord: " + score;
+        bericht += "Aantal punten voor de lengte van het woord: " + score;
         System.out.println(bericht);
         return score;
     }

@@ -16,7 +16,7 @@ public class AantalGoedBeantwoordeVragen implements Puntentelling {
                 score++;
             }
         }
-        System.out.println("Punten voor het aantal goed beantwoorde vragen: " + score);
+        System.out.println("Aantal punten voor het aantal goed beantwoorde vragen: " + score);
         return score;
     }
 }

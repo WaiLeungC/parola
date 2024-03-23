@@ -15,7 +15,7 @@ public class TotaleTijd implements Puntentelling {
         } else {
             score = 1;
         }
-        System.out.println("Punten voor de totale tijd die nodig was om de quiz te spelen: " + score);
+        System.out.println("Aantal punten voor de totale tijd die nodig was om de quiz te spelen: " + score);
         return score;
     }
 }
