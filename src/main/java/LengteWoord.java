@@ -7,13 +7,15 @@ public class LengteWoord implements Puntentelling {
 
     @Override
     public int calculateScore(String woord) {
+        String bericht = "";
         int score = 0;
         if (woordChecker.woordBestaat(woord)) {
             score = woord.length();
         } else {
-            System.out.println("Het gevormde woord \"" + woord + "\" bestaat niet.");
+            bericht += "Het gevormde woord \"" + woord + "\" bestaat niet. ";
         }
-        System.out.println("Punten voor de lengte van het woord: " + score);
+        bericht += "Punten voor de lengte van het woord: " + score;
+        System.out.println(bericht);
         return score;
     }
 }
