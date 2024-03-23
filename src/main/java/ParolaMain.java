@@ -22,8 +22,14 @@ public class ParolaMain {
         System.out.print("Make a word, as long as possible, that contains these letters: ");
         String word = scanner.nextLine();
 
+        int score = 0;
         parola.setPuntentelling(new AantalGoedBeantwoordeVragen());
-        int score = parola.calculateScore(word);
+        score += parola.calculateScore(word);
+        parola.setPuntentelling(new LengteWoord());
+        score += parola.calculateScore(word);
+        parola.setPuntentelling(new TotaleTijd());
+        score += parola.calculateScore(word);
+
         System.out.println("Score: " + score);
     }
 }
