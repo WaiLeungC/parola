@@ -1,4 +1,5 @@
 public class ParolaController {
+    private Puntentelling puntentelling;
     private static ParolaController instance;
     private ParolaService parolaService;
     private String playerName;
@@ -62,6 +63,10 @@ public class ParolaController {
     }
 
     public int calculateScore(String word) {
-        return 0;
+        return puntentelling.calculateScore(word);
+    }
+
+    public void setPuntentelling(Puntentelling puntentelling) {
+        this.puntentelling = puntentelling;
     }
 }
