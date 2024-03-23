@@ -23,11 +23,11 @@ public class ParolaMain {
         String word = scanner.nextLine();
 
         int score = 0;
-        parola.setPuntentelling(new AantalGoedBeantwoordeVragen());
+        parola.setPuntentelling(new AantalGoedBeantwoordeVragen(parola.getQuiz()));
         score += parola.calculateScore(word);
         parola.setPuntentelling(new LengteWoord());
         score += parola.calculateScore(word);
-        parola.setPuntentelling(new TotaleTijd());
+        parola.setPuntentelling(new TotaleTijd(parola.getTotaleTijd()));
         score += parola.calculateScore(word);
 
         System.out.println("Score: " + score);

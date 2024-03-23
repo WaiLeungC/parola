@@ -1,11 +1,18 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ParolaController {
-    private Puntentelling puntentelling;
     private static ParolaController instance;
     private ParolaService parolaService;
     private String playerName;
     private Quiz quiz;
     private Vraag huidigeVraag;
     private final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
+    private Puntentelling puntentelling;
+
+    private Timer timer = new Timer();
+    private TimerTask timerTask;
+    private int totaleTijd;
 
     public ParolaController(ParolaService parolaService) {
         this.parolaService = parolaService;
@@ -21,6 +28,7 @@ public class ParolaController {
     public void startQuiz(String playerName) {
         this.playerName = playerName;
         quiz = parolaService.getRandomQuiz();
+        startTimer();
     }
 
     public String nextQuestion() {
@@ -59,11 +67,40 @@ public class ParolaController {
     }
 
     public boolean quizFinished() {
+        if (quiz.quizFinished()) {
+            stopTimer();
+        }
         return quiz.quizFinished();
     }
 
     public int calculateScore(String word) {
         return puntentelling.calculateScore(word);
+    }
+
+    private void startTimer() {
+        totaleTijd = 0;
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                totaleTijd++;
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 0, 1000);
+    }
+
+    private void stopTimer() {
+        if (timerTask != null) {
+            timerTask.cancel();
+            timerTask = null;
+        }
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public int getTotaleTijd() {
+        return totaleTijd;
     }
 
     public void setPuntentelling(Puntentelling puntentelling) {
