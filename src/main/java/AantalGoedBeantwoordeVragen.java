@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AantalGoedBeantwoordeVragen implements Puntentelling {
     private Quiz quiz;
 
@@ -7,6 +9,14 @@ public class AantalGoedBeantwoordeVragen implements Puntentelling {
 
     @Override
     public int calculateScore(String woord) {
-        return 0;
+        int score = 0;
+        ArrayList<Vraag> vragen = quiz.getVragen();
+        for (Vraag vraag : vragen) {
+            if (vraag.goedBeantwoord) {
+                score++;
+            }
+        }
+        System.out.println("Punten voor het aantal goed beantwoorde vragen: " + score);
+        return score;
     }
 }

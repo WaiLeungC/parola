@@ -32,4 +32,8 @@ public class Quiz {
     public boolean quizFinished() {
         return volgendeVraagIndex >= vragen.size();
     }
+
+    public ArrayList<Vraag> getVragen() {
+        return vragen;
+    }
 }
