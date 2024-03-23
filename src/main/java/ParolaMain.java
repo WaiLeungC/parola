@@ -29,7 +29,6 @@ public class ParolaMain {
         score += parola.calculateScore(word);
         parola.setPuntentelling(new TotaleTijd(parola.getTotaleTijd()));
         score += parola.calculateScore(word);
-
         System.out.println("Score: " + score);
 
         System.exit(0);

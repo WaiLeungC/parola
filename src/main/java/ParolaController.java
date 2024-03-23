@@ -63,7 +63,16 @@ public class ParolaController {
     }
 
     public String getLettersForRightAnswers() {
-        return quiz.getLettersForRightAnswers();
+        String letters = quiz.getLettersForRightAnswers();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < letters.length(); i++) {
+            stringBuilder.append(letters.charAt(i));
+            stringBuilder.append(", ");
+        }
+        if (stringBuilder.length() > 0) {
+            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        }
+        return stringBuilder.toString();
     }
 
     public boolean quizFinished() {

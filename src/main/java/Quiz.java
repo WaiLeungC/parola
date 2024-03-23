@@ -20,11 +20,7 @@ public class Quiz {
         for (Vraag vraag : vragen) {
             if (vraag.goedBeantwoord) {
                 stringBuilder.append(vraag.letter);
-                stringBuilder.append(", ");
             }
-        }
-        if (stringBuilder.length() > 0) {
-            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         }
         return stringBuilder.toString();
     }
