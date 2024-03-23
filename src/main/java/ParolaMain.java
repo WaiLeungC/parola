@@ -31,5 +31,7 @@ public class ParolaMain {
         score += parola.calculateScore(word);
 
         System.out.println("Score: " + score);
+
+        System.exit(0);
     }
 }
