@@ -1,4 +1,4 @@
-public class AantalGoedEnLengteWoord implements Puntentelling {
+public class AantalGoedBeantwoordeVragen implements Puntentelling {
     @Override
     public int calculateScore(String woord) {
         return 0;
