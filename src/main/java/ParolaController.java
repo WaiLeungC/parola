@@ -4,7 +4,7 @@ import java.util.TimerTask;
 public class ParolaController {
     private static ParolaController instance;
     private ParolaService parolaService;
-    private String playerName;
+    private Speler speler;
     private Quiz quiz;
     private Vraag huidigeVraag;
     private final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
@@ -26,7 +26,8 @@ public class ParolaController {
     }
 
     public void startQuiz(String playerName) {
-        this.playerName = playerName;
+        speler = new Speler(playerName);
+        speler.removeSaldo(40);
         quiz = parolaService.getRandomQuiz();
         startTimer();
     }
