@@ -2,7 +2,7 @@ public class LengteWoord implements Puntentelling {
     private WoordChecker woordChecker;
 
     public LengteWoord() {
-        woordChecker = new EngelseWoordChecker();
+        woordChecker = new NederlandseWoordChecker();
     }
 
     @Override

@@ -1,4 +1,4 @@
-public class EngelseWoordChecker implements WoordChecker {
+public class NederlandseWoordChecker implements WoordChecker {
     private String[] bestaandeWoorden = {
             "TILDE",
             "DETAIL",
