@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class KortAntwoordVraag extends Vraag {
-    public KortAntwoordVraag(String vraagTekst, ArrayList<Antwoord> antwoorden, String letter) {
-        super(vraagTekst, antwoorden, letter);
+    public KortAntwoordVraag(String vraagTekst, ArrayList<Antwoord> antwoorden, String letter, Categorie categorie) {
+        super(vraagTekst, antwoorden, letter, categorie);
     }
 
     @Override
