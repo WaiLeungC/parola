@@ -44,6 +44,7 @@ public class ParolaController {
                 stringBuilder.append(huidigeVraag.antwoorden.get(i).getAntwoordTekst());
                 stringBuilder.append("\n");
             }
+            stringBuilder.setLength(stringBuilder.length() - 1);
             return huidigeVraag.vraagTekst + stringBuilder;
         }
 
