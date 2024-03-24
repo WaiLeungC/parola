@@ -7,12 +7,12 @@ public class Speler {
         this.saldo = 1000;
     }
 
-    public void addSaldo(int amount) {
-        saldo += amount;
+    public void toevoegSaldo(int aantal) {
+        saldo += aantal;
     }
 
-    public void removeSaldo(int amount) {
-        saldo -= amount;
+    public void verwijderSaldo(int aantal) {
+        saldo -= aantal;
     }
 
     public int getSaldo() {

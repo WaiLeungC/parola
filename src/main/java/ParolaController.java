@@ -27,7 +27,7 @@ public class ParolaController {
 
     public void startQuiz(String playerName) {
         speler = new Speler(playerName);
-        speler.removeSaldo(40);
+        speler.verwijderSaldo(40);
         quiz = parolaService.getRandomQuiz();
         startTimer();
     }
