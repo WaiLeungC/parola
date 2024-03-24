@@ -18,8 +18,8 @@ public class Quiz {
     public String getLettersForRightAnswers() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Vraag vraag : vragen) {
-            if (vraag.goedBeantwoord) {
-                stringBuilder.append(vraag.letter);
+            if (vraag.isGoedBeantwoord()) {
+                stringBuilder.append(vraag.getLetter());
             }
         }
         return stringBuilder.toString();

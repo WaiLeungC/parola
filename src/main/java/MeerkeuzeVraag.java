@@ -11,7 +11,7 @@ public class MeerkeuzeVraag extends Vraag {
     @Override
     public void processAnswer(String antwoord) {
         if (antwoord.equals(goedAntwoord.getAntwoordTekst())) {
-            goedBeantwoord = true;
+            setGoedBeantwoord(true);
         }
     }
 }

@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public abstract class Vraag {
-    public String vraagTekst;
-    public ArrayList<Antwoord> antwoorden;
-    public String letter;
-    public Categorie categorie;
-    public boolean goedBeantwoord;
+    private String vraagTekst;
+    private ArrayList<Antwoord> antwoorden;
+    private String letter;
+    private Categorie categorie;
+    private boolean goedBeantwoord;
 
     public Vraag(String vraagTekst, ArrayList<Antwoord> antwoorden, String letter, Categorie categorie) {
         this.vraagTekst = vraagTekst;
@@ -15,4 +15,28 @@ public abstract class Vraag {
     }
 
     public abstract void processAnswer(String antwoord);
+
+    public String getVraagTekst() {
+        return vraagTekst;
+    }
+
+    public ArrayList<Antwoord> getAntwoorden() {
+        return antwoorden;
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public boolean isGoedBeantwoord() {
+        return goedBeantwoord;
+    }
+
+    public void setGoedBeantwoord(boolean goedBeantwoord) {
+        this.goedBeantwoord = goedBeantwoord;
+    }
 }

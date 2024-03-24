@@ -38,24 +38,24 @@ public class ParolaController {
         if (huidigeVraag instanceof MeerkeuzeVraag) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("\n");
-            for (int i = 0; i < huidigeVraag.antwoorden.size(); i++) {
+            for (int i = 0; i < huidigeVraag.getAntwoorden().size(); i++) {
                 stringBuilder.append(ANTWOORD_KEUZES[i]);
                 stringBuilder.append(".    ");
-                stringBuilder.append(huidigeVraag.antwoorden.get(i).getAntwoordTekst());
+                stringBuilder.append(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
                 stringBuilder.append("\n");
             }
             stringBuilder.setLength(stringBuilder.length() - 1);
-            return huidigeVraag.vraagTekst + stringBuilder;
+            return huidigeVraag.getVraagTekst() + stringBuilder;
         }
 
-        return huidigeVraag.vraagTekst;
+        return huidigeVraag.getVraagTekst();
     }
 
     public void processAnswer(String answer) {
         if (huidigeVraag instanceof MeerkeuzeVraag) {
             for (int i = 0; i < ANTWOORD_KEUZES.length; i++) {
                 if (ANTWOORD_KEUZES[i].equalsIgnoreCase(answer)) {
-                    huidigeVraag.processAnswer(huidigeVraag.antwoorden.get(i).getAntwoordTekst());
+                    huidigeVraag.processAnswer(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
                     break;
                 }
             }

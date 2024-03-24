@@ -12,7 +12,7 @@ public class AantalGoedBeantwoordeVragen implements Puntentelling {
         int score = 0;
         ArrayList<Vraag> vragen = quiz.getVragen();
         for (Vraag vraag : vragen) {
-            if (vraag.goedBeantwoord) {
+            if (vraag.isGoedBeantwoord()) {
                 score++;
             }
         }
