@@ -59,7 +59,7 @@ public class ParolaService {
         antwoord = new Antwoord("Tottenham Hotspur");
         antwoorden.add(antwoord);
         categorie = new Categorie("Sport");
-        vraag = new MeerkeuzeVraag("Welke van de volgende Engelse voetbalclubs is afkomstig uit Liverpool?", antwoorden, goedAntwoord, "e", categorie);
+        vraag = new MeerkeuzeVraag("Welke van de volgende Engelse voetbalclubs is afkomstig uit Liverpool?", antwoorden, goedAntwoord, "E", categorie);
         vragen.add(vraag);
 
         antwoorden = new ArrayList<>();
