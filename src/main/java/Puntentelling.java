@@ -1,3 +1,3 @@
 public interface Puntentelling {
-    int calculateScore(String woord);
+    int calculateScore(String word);
 }

@@ -6,7 +6,7 @@ public class TotaleTijd implements Puntentelling {
     }
 
     @Override
-    public int calculateScore(String woord) {
+    public int calculateScore(String word) {
         int score;
         if (totaleTijd < 60) {
             score = 3;

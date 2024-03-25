@@ -8,7 +8,7 @@ public class AantalGoedBeantwoordeVragen implements Puntentelling {
     }
 
     @Override
-    public int calculateScore(String woord) {
+    public int calculateScore(String word) {
         int score = 0;
         ArrayList<Vraag> vragen = quiz.getVragen();
         for (Vraag vraag : vragen) {
