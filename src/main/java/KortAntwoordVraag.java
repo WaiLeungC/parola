@@ -6,9 +6,9 @@ public class KortAntwoordVraag extends Vraag {
     }
 
     @Override
-    public void processAnswer(String antwoord) {
+    public void processAnswer(String answer) {
         for (Antwoord antwoordMogelijkheid : getAntwoorden()) {
-            if (antwoord.equals(antwoordMogelijkheid.getAntwoordTekst())) {
+            if (answer.equals(antwoordMogelijkheid.getAntwoordTekst())) {
                 setGoedBeantwoord(true);
                 break;
             }

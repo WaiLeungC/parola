@@ -14,7 +14,7 @@ public abstract class Vraag {
         this.categorie = categorie;
     }
 
-    public abstract void processAnswer(String antwoord);
+    public abstract void processAnswer(String answer);
 
     public String getVraagTekst() {
         return vraagTekst;
