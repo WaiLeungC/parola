@@ -40,7 +40,7 @@ public class ParolaController {
             stringBuilder.append("\n");
             for (int i = 0; i < huidigeVraag.getAntwoorden().size(); i++) {
                 stringBuilder.append(ANTWOORD_KEUZES[i]);
-                stringBuilder.append(".    ");
+                stringBuilder.append(". ");
                 stringBuilder.append(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
                 stringBuilder.append("\n");
             }

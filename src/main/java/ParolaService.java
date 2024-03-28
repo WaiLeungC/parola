@@ -38,7 +38,7 @@ public class ParolaService {
         antwoorden = new ArrayList<>();
         antwoord = new Antwoord("Henning Mankell");
         antwoorden.add(antwoord);
-        antwoord = new Antwoord(" Jo Nesbø");
+        antwoord = new Antwoord("Jo Nesbø");
         antwoorden.add(antwoord);
         antwoord = new Antwoord("Lars Kepler");
         antwoorden.add(antwoord);
