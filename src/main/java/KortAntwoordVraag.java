@@ -8,7 +8,7 @@ public class KortAntwoordVraag extends Vraag {
     @Override
     public void processAnswer(String answer) {
         for (Antwoord goedAntwoord : getAntwoorden()) {
-            if (answer.equals(goedAntwoord.getAntwoordTekst())) {
+            if (answer.equalsIgnoreCase(goedAntwoord.getAntwoordTekst())) {
                 setGoedBeantwoord(true);
                 break;
             }
