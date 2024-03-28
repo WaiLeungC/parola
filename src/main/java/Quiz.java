@@ -37,7 +37,7 @@ public class Quiz {
         return volgendeVraagIndex;
     }
 
-    public void setVolgendeVraagIndex(int volgendeVraagIndex) {
-        this.volgendeVraagIndex = volgendeVraagIndex;
+    public void setVolgendeVraagIndex(int index) {
+        this.volgendeVraagIndex = index;
     }
 }
