@@ -53,11 +53,17 @@ public class ParolaController {
 
     public void processAnswer(String answer) {
         if (huidigeVraag instanceof MeerkeuzeVraag) {
+            boolean geldigAntwoord = false;
             for (int i = 0; i < ANTWOORD_KEUZES.length; i++) {
                 if (ANTWOORD_KEUZES[i].equalsIgnoreCase(answer)) {
+                    geldigAntwoord = true;
                     huidigeVraag.processAnswer(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
                     break;
                 }
+            }
+            if (!geldigAntwoord) {
+                System.out.println("Het opgegeven antwoord is ongeldig.");
+                quiz.setVolgendeVraagIndex(quiz.getVolgendeVraagIndex() - 1);
             }
         } else if (huidigeVraag instanceof KortAntwoordVraag) {
             huidigeVraag.processAnswer(answer);

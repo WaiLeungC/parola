@@ -32,4 +32,12 @@ public class Quiz {
     public ArrayList<Vraag> getVragen() {
         return vragen;
     }
+
+    public int getVolgendeVraagIndex() {
+        return volgendeVraagIndex;
+    }
+
+    public void setVolgendeVraagIndex(int volgendeVraagIndex) {
+        this.volgendeVraagIndex = volgendeVraagIndex;
+    }
 }
