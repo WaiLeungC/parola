@@ -1,21 +1,21 @@
 public class Speler {
     private String naam;
-    private int saldo;
+    private int credits;
 
     public Speler(String naam) {
         this.naam = naam;
-        this.saldo = 1000;
+        this.credits = 1000;
     }
 
-    public void toevoegSaldo(int aantal) {
-        saldo += aantal;
+    public void toevoegCredits(int aantal) {
+        credits += aantal;
     }
 
-    public void verwijderSaldo(int aantal) {
-        saldo -= aantal;
+    public void verwijderCredits(int aantal) {
+        credits -= aantal;
     }
 
-    public int getSaldo() {
-        return saldo;
+    public int getCredits() {
+        return credits;
     }
 }
