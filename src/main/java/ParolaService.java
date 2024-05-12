@@ -1,100 +1,102 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParolaService {
     public Quiz getRandomQuiz() {
-        ArrayList<Vraag> vragen = new ArrayList<>();
+        List<Vraag> vragen = new ArrayList<>();
         Vraag vraag;
-        ArrayList<Antwoord> antwoorden;
         Antwoord antwoord;
+        List<Antwoord> alternatieven;
         Antwoord goedAntwoord;
+        List<Antwoord> goedeAntwoorden;
         Categorie categorie;
 
-        antwoorden = new ArrayList<>();
+        alternatieven = new ArrayList<>();
         antwoord = new Antwoord("Bayda");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Benghazi");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Misrata");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         goedAntwoord = new Antwoord("Tripoli");
-        antwoorden.add(goedAntwoord);
+        alternatieven.add(goedAntwoord);
         categorie = new Categorie("Geografie");
-        vraag = new MeerkeuzeVraag("Wat is de hoofdstad van Libië?", antwoorden, goedAntwoord, "T", categorie);
+        vraag = new MeerkeuzeVraag("Wat is de hoofdstad van Libië?", "T", categorie, alternatieven, goedAntwoord);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        alternatieven = new ArrayList<>();
         goedAntwoord = new Antwoord("Davis Cup");
-        antwoorden.add(goedAntwoord);
+        alternatieven.add(goedAntwoord);
         antwoord = new Antwoord("Diamond League");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Fed Cup");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Nations League");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         categorie = new Categorie("Sport");
-        vraag = new MeerkeuzeVraag("Hoe heet het officieuze landenkampioenschap tennis voor mannen?", antwoorden, goedAntwoord, "D", categorie);
+        vraag = new MeerkeuzeVraag("Hoe heet het officieuze landenkampioenschap tennis voor mannen?", "D", categorie, alternatieven, goedAntwoord);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        alternatieven = new ArrayList<>();
         antwoord = new Antwoord("Henning Mankell");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Jo Nesbø");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Lars Kepler");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         goedAntwoord = new Antwoord("Stieg Larsson");
-        antwoorden.add(goedAntwoord);
+        alternatieven.add(goedAntwoord);
         categorie = new Categorie("Literatuur");
         vraag = new MeerkeuzeVraag("Hoe heet de schrijver van de Millennium-trilogie, een reeks misdaadromans? " +
-                "Het eerste boek uit de reeks heet Mannen die vrouwen haten.", antwoorden, goedAntwoord, "L", categorie);
+                "Het eerste boek uit de reeks heet Mannen die vrouwen haten.", "L", categorie, alternatieven, goedAntwoord);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        alternatieven = new ArrayList<>();
         antwoord = new Antwoord("Arsenal");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         antwoord = new Antwoord("Chelsea");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         goedAntwoord = new Antwoord("Everton");
-        antwoorden.add(goedAntwoord);
+        alternatieven.add(goedAntwoord);
         antwoord = new Antwoord("Tottenham Hotspur");
-        antwoorden.add(antwoord);
+        alternatieven.add(antwoord);
         categorie = new Categorie("Sport");
-        vraag = new MeerkeuzeVraag("Welke van de volgende Engelse voetbalclubs is afkomstig uit Liverpool?", antwoorden, goedAntwoord, "E", categorie);
+        vraag = new MeerkeuzeVraag("Welke van de volgende Engelse voetbalclubs is afkomstig uit Liverpool?", "E", categorie, alternatieven, goedAntwoord);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        goedeAntwoorden = new ArrayList<>();
         antwoord = new Antwoord("California");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         antwoord = new Antwoord("Californië");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         categorie = new Categorie("Geografie");
-        vraag = new KortAntwoordVraag("In welke staat van de VS ligt de stad Los Angeles?", antwoorden, "C", categorie);
+        vraag = new KortAntwoordVraag("In welke staat van de VS ligt de stad Los Angeles?", "C", categorie, goedeAntwoorden);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        goedeAntwoorden = new ArrayList<>();
         antwoord = new Antwoord("Eminem");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         categorie = new Categorie("Muziek");
-        vraag = new KortAntwoordVraag("Wat is de artiestnaam van de rapper Marshall Bruce Mathers III?", antwoorden, "E", categorie);
+        vraag = new KortAntwoordVraag("Wat is de artiestnaam van de rapper Marshall Bruce Mathers III?", "E", categorie, goedeAntwoorden);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        goedeAntwoorden = new ArrayList<>();
         antwoord = new Antwoord("Adri");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         antwoord = new Antwoord("Adrie");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         categorie = new Categorie("Sport");
         vraag = new KortAntwoordVraag("Mathieu van der Poel en zijn vader, die ook wielrenner was, hebben allebei de gele trui gedragen in " +
-                "de Tour de France. Wat is de voornaam van de vader van Mathieu?", antwoorden, "A", categorie);
+                "de Tour de France. Wat is de voornaam van de vader van Mathieu?", "A", categorie, goedeAntwoorden);
         vragen.add(vraag);
 
-        antwoorden = new ArrayList<>();
+        goedeAntwoorden = new ArrayList<>();
         antwoord = new Antwoord("imker");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         antwoord = new Antwoord("bijker");
-        antwoorden.add(antwoord);
+        goedeAntwoorden.add(antwoord);
         categorie = new Categorie("Trivia");
-        vraag = new KortAntwoordVraag("Hoe noem je een persoon die zich bezighoudt met bijenteelt?", antwoorden, "I", categorie);
+        vraag = new KortAntwoordVraag("Hoe noem je een persoon die zich bezighoudt met bijenteelt?", "I", categorie, goedeAntwoorden);
         vragen.add(vraag);
 
         return new Quiz(vragen);

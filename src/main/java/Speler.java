@@ -14,8 +14,4 @@ public class Speler {
     public void verwijderCredits(int aantal) {
         credits -= aantal;
     }
-
-    public int getCredits() {
-        return credits;
-    }
 }

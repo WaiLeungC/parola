@@ -6,13 +6,10 @@ public class ParolaController {
     private ParolaService parolaService;
     private Speler speler;
     private Quiz quiz;
-    private Vraag huidigeVraag;
-    private final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
     private Puntentelling puntentelling;
-
     private Timer timer = new Timer();
     private TimerTask timerTask;
-    private int totaleTijd;
+    private int bestedeTijd;
 
     public ParolaController(ParolaService parolaService) {
         this.parolaService = parolaService;
@@ -28,46 +25,32 @@ public class ParolaController {
     public void startQuiz(String playerName) {
         speler = new Speler(playerName);
         speler.verwijderCredits(40);
+
         quiz = parolaService.getRandomQuiz();
         startTimer();
     }
 
     public String nextQuestion() {
-        huidigeVraag = quiz.nextQuestion();
-
+        final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
+        Vraag huidigeVraag = quiz.nextQuestion();
         if (huidigeVraag instanceof MeerkeuzeVraag) {
+            MeerkeuzeVraag meerkeuzeVraag = (MeerkeuzeVraag) huidigeVraag;
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("\n");
-            for (int i = 0; i < huidigeVraag.getAntwoorden().size(); i++) {
+            for (int i = 0; i < meerkeuzeVraag.getAlternatieven().size(); i++) {
                 stringBuilder.append(ANTWOORD_KEUZES[i]);
                 stringBuilder.append(". ");
-                stringBuilder.append(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
+                stringBuilder.append(meerkeuzeVraag.getAlternatieven().get(i).getAntwoordTekst());
                 stringBuilder.append("\n");
             }
             stringBuilder.setLength(stringBuilder.length() - 1);
             return huidigeVraag.getVraagTekst() + stringBuilder;
         }
-
         return huidigeVraag.getVraagTekst();
     }
 
     public void processAnswer(String answer) {
-        if (huidigeVraag instanceof MeerkeuzeVraag) {
-            boolean geldigAntwoord = false;
-            for (int i = 0; i < ANTWOORD_KEUZES.length; i++) {
-                if (ANTWOORD_KEUZES[i].equalsIgnoreCase(answer)) {
-                    geldigAntwoord = true;
-                    huidigeVraag.processAnswer(huidigeVraag.getAntwoorden().get(i).getAntwoordTekst());
-                    break;
-                }
-            }
-            if (!geldigAntwoord) {
-                System.out.println("Het opgegeven antwoord is ongeldig.");
-                quiz.setVolgendeVraagIndex(quiz.getVolgendeVraagIndex() - 1);
-            }
-        } else if (huidigeVraag instanceof KortAntwoordVraag) {
-            huidigeVraag.processAnswer(answer);
-        }
+        quiz.processAnswer(answer);
     }
 
     public String getLettersForRightAnswers() {
@@ -95,11 +78,11 @@ public class ParolaController {
     }
 
     private void startTimer() {
-        totaleTijd = 0;
+        bestedeTijd = 0;
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                totaleTijd++;
+                bestedeTijd++;
             }
         };
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
@@ -116,8 +99,8 @@ public class ParolaController {
         return quiz;
     }
 
-    public int getTotaleTijd() {
-        return totaleTijd;
+    public int getBestedeTijd() {
+        return bestedeTijd;
     }
 
     public void setPuntentelling(Puntentelling puntentelling) {

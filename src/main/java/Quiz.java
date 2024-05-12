@@ -1,43 +1,42 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Quiz {
-    private ArrayList<Vraag> vragen;
-    private int volgendeVraagIndex;
+    private List<Vraag> vragen;
+    private int huidigeVraagIndex;
+    private boolean[] goedBeantwoordeVragen;
 
-    public Quiz(ArrayList<Vraag> vragen) {
+    public Quiz(List<Vraag> vragen) {
         this.vragen = vragen;
-        this.volgendeVraagIndex = 0;
+        this.huidigeVraagIndex = 0;
+        this.goedBeantwoordeVragen = new boolean[vragen.size()];
     }
 
     public Vraag nextQuestion() {
-        Vraag volgendeVraag = vragen.get(volgendeVraagIndex);
-        volgendeVraagIndex++;
-        return volgendeVraag;
+        return vragen.get(huidigeVraagIndex);
+    }
+
+    public void processAnswer(String answer) {
+        Vraag huidigeVraag = vragen.get(huidigeVraagIndex);
+        goedBeantwoordeVragen[huidigeVraagIndex] = huidigeVraag.controleerAntwoord(answer);
+
+        huidigeVraagIndex++;
     }
 
     public String getLettersForRightAnswers() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Vraag vraag : vragen) {
-            if (vraag.isGoedBeantwoord()) {
-                stringBuilder.append(vraag.getLetter());
+        for (int i = 0; i < goedBeantwoordeVragen.length; i++) {
+            if (goedBeantwoordeVragen[i]) {
+                stringBuilder.append(vragen.get(i).getLetter());
             }
         }
         return stringBuilder.toString();
     }
 
     public boolean quizFinished() {
-        return volgendeVraagIndex >= vragen.size();
+        return huidigeVraagIndex >= vragen.size();
     }
 
-    public ArrayList<Vraag> getVragen() {
-        return vragen;
-    }
-
-    public int getVolgendeVraagIndex() {
-        return volgendeVraagIndex;
-    }
-
-    public void setVolgendeVraagIndex(int index) {
-        this.volgendeVraagIndex = index;
+    public boolean[] getGoedBeantwoordeVragen() {
+        return goedBeantwoordeVragen;
     }
 }

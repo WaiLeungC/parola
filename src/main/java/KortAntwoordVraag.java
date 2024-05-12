@@ -1,17 +1,20 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class KortAntwoordVraag extends Vraag {
-    public KortAntwoordVraag(String vraagTekst, ArrayList<Antwoord> antwoorden, String letter, Categorie categorie) {
-        super(vraagTekst, antwoorden, letter, categorie);
+    private List<Antwoord> goedeAntwoorden;
+
+    public KortAntwoordVraag(String vraagTekst, String letter, Categorie categorie, List<Antwoord> goedeAntwoorden) {
+        super(vraagTekst, letter, categorie);
+        this.goedeAntwoorden = goedeAntwoorden;
     }
 
     @Override
-    public void processAnswer(String answer) {
-        for (Antwoord goedAntwoord : getAntwoorden()) {
-            if (answer.equalsIgnoreCase(goedAntwoord.getAntwoordTekst())) {
-                setGoedBeantwoord(true);
-                break;
+    public boolean controleerAntwoord(String antwoord) {
+        for (Antwoord goedAntwoord : goedeAntwoorden) {
+            if (goedAntwoord.getAntwoordTekst().equalsIgnoreCase(antwoord)) {
+                return true;
             }
         }
+        return false;
     }
 }
