@@ -1,10 +1,12 @@
 public class CombinedScoreCalculator implements Puntentelling {
     private Quiz quiz;
     private int bestedeTijd;
+    private WoordChecker woordChecker;
 
-    public CombinedScoreCalculator(Quiz quiz, int bestedeTijd) {
+    public CombinedScoreCalculator(Quiz quiz, int bestedeTijd, WoordChecker woordChecker) {
         this.quiz = quiz;
         this.bestedeTijd = bestedeTijd;
+        this.woordChecker = woordChecker;
     }
 
     @Override
@@ -29,9 +31,8 @@ public class CombinedScoreCalculator implements Puntentelling {
 
     private int calculateScoreForWordLength(String word) {
         int score = 0;
-        NederlandseWoordChecker woordChecker = new NederlandseWoordChecker();
         if (woordChecker.woordBestaat(word)) {
-            if (woordChecker.canFormWordFromLetters(word, quiz.getLettersForRightAnswers())) {
+            if (woordChecker.kanWoordVormenUitLetters(word, quiz.getLettersForRightAnswers())) {
                 score = word.length();
             }
         } else {

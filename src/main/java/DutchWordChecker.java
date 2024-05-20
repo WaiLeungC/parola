@@ -1,14 +1,14 @@
-public class NederlandseWoordChecker {
-    private String[] bestaandeWoorden = {
+public class DutchWordChecker {
+    private String[] existingWords = {
             "TILDE",
             "DETAIL",
             "DIALECT",
             "CITADEL"
     };
 
-    public boolean woordBestaat(String woord) {
-        for (String bestaandWoord : bestaandeWoorden) {
-            if (bestaandWoord.equalsIgnoreCase(woord)) {
+    public boolean wordExists(String word) {
+        for (String bestaandWoord : existingWords) {
+            if (bestaandWoord.equalsIgnoreCase(word)) {
                 return true;
             }
         }

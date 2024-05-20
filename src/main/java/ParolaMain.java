@@ -21,7 +21,8 @@ public class ParolaMain {
         System.out.print("Make a word, as long as possible, that contains these letters: ");
         String word = scanner.nextLine();
 
-        CombinedScoreCalculator scoreCalculator = new CombinedScoreCalculator(parola.getQuiz(), parola.getBestedeTijd());
+        WoordChecker woordChecker = new DutchWordCheckerAdapter();
+        CombinedScoreCalculator scoreCalculator = new CombinedScoreCalculator(parola.getQuiz(), parola.getBestedeTijd(), woordChecker);
         parola.setPuntentelling(scoreCalculator);
         int score = parola.calculateScore(word);
         System.out.println("Score: " + score);
