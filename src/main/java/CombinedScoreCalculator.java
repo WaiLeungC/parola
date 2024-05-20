@@ -23,6 +23,7 @@ public class CombinedScoreCalculator implements Puntentelling {
                 score++;
             }
         }
+        System.out.println("Aantal punten voor het aantal goed beantwoorde vragen: " + score);
         return score;
     }
 
@@ -36,6 +37,7 @@ public class CombinedScoreCalculator implements Puntentelling {
         } else {
             System.out.println("Het gevormde woord " + word + " bestaat niet.");
         }
+        System.out.println("Aantal punten voor de lengte van het gevormde woord: " + score);
         return score;
     }
 
@@ -48,6 +50,7 @@ public class CombinedScoreCalculator implements Puntentelling {
         } else {
             score = 1;
         }
+        System.out.println("Aantal punten voor de bestede tijd: " + score);
         return score;
     }
 }
