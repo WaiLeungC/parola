@@ -31,22 +31,7 @@ public class ParolaController {
     }
 
     public String nextQuestion() {
-        final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
-        Vraag huidigeVraag = quiz.nextQuestion();
-        if (huidigeVraag instanceof MeerkeuzeVraag) {
-            MeerkeuzeVraag meerkeuzeVraag = (MeerkeuzeVraag) huidigeVraag;
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("\n");
-            for (int i = 0; i < meerkeuzeVraag.getAlternatieven().size(); i++) {
-                stringBuilder.append(ANTWOORD_KEUZES[i]);
-                stringBuilder.append(". ");
-                stringBuilder.append(meerkeuzeVraag.getAlternatieven().get(i).getAntwoordTekst());
-                stringBuilder.append("\n");
-            }
-            stringBuilder.setLength(stringBuilder.length() - 1);
-            return huidigeVraag.getVraagTekst() + stringBuilder;
-        }
-        return huidigeVraag.getVraagTekst();
+        return quiz.nextQuestion().getVraagTekst();
     }
 
     public void processAnswer(String answer) {
