@@ -34,7 +34,7 @@ public class ParolaController {
         return quiz.nextQuestion().getVraagTekst();
     }
 
-    public void processAnswer(String answer) {
+    public void processAnswer(String playername, String answer) {
         quiz.processAnswer(answer);
     }
 
@@ -51,14 +51,14 @@ public class ParolaController {
         return stringBuilder.toString();
     }
 
-    public boolean quizFinished() {
+    public boolean quizFinished(String playername) {
         if (quiz.quizFinished()) {
             stopTimer();
         }
         return quiz.quizFinished();
     }
 
-    public int calculateScore(String word) {
+    public int calculateScore(String playername, String word) {
         return puntentelling.calculateScore(word);
     }
 

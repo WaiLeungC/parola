@@ -14,8 +14,8 @@ public class ParolaMain {
             System.out.println(parola.nextQuestion());
             System.out.print("Give your answer to this question: ");
             String answer = scanner.nextLine();
-            parola.processAnswer(answer);
-        } while (!parola.quizFinished());
+            parola.processAnswer(playerName, answer);
+        } while (!parola.quizFinished(playerName));
 
         System.out.println("You've earned the following letters: " + parola.getLettersForRightAnswers());
         System.out.print("Make a word, as long as possible, that contains these letters: ");
@@ -24,7 +24,7 @@ public class ParolaMain {
         WoordChecker woordChecker = new DutchWordCheckerAdapter();
         CombinedScoreCalculator scoreCalculator = new CombinedScoreCalculator(parola.getQuiz(), parola.getBestedeTijd(), woordChecker);
         parola.setPuntentelling(scoreCalculator);
-        int score = parola.calculateScore(word);
+        int score = parola.calculateScore(playerName, word);
         System.out.println("Score: " + score);
 
         System.exit(0);
