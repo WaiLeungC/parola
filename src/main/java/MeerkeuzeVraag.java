@@ -23,6 +23,25 @@ public class MeerkeuzeVraag extends Vraag {
         return goedBeantwoord;
     }
 
+    @Override
+    public String getVraagTekst() {
+        final String[] ANTWOORD_KEUZES = {"A", "B", "C", "D"};
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n");
+
+        for (int i = 0; i < alternatieven.size(); i++) {
+            stringBuilder.append(ANTWOORD_KEUZES[i]);
+            stringBuilder.append(". ");
+            stringBuilder.append(alternatieven.get(i).getAntwoordTekst());
+
+            if (i < alternatieven.size() - 1) {
+                stringBuilder.append("\n");
+            }
+        }
+
+        return super.getVraagTekst() + stringBuilder;
+    }
+
     public List<Antwoord> getAlternatieven() {
         return alternatieven;
     }
